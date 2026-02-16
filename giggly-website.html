@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giggly LLC - Market Research & E-commerce Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c7956d;
+            --accent-light: #e8d5c4;
+            --text: #2d2d2d;
+            --text-light: #666;
+            --bg: #fafaf8;
+            --white: #ffffff;
+            --border: #e5e5e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1.2rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg) 0%, #f5f3ed 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(199, 149, 109, 0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, 30px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .feature-item .number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .feature-item .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 3rem;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-number {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Research Approach Grid */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .approach-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .approach-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .approach-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .approach-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .approach-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .approach-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.7rem;
+            position: relative;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .approach-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 4rem;
+            margin-top: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .case-study {
+            margin-bottom: 5rem;
+            padding-bottom: 5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-study:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .case-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .case-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            line-height: 1;
+        }
+
+        .case-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .case-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .case-section h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .case-section p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-box {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .metric-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #252538 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 5rem 4rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 1.4rem;
+            color: var(--accent-light);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--accent-light);
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-email:hover {
+            background: var(--accent-light);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(199, 149, 109, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 6rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                padding: 3rem 2rem;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Language-specific styles */
+        [lang="zh"] {
+            font-family: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        [lang="zh"] h1,
+        [lang="zh"] h2,
+        [lang="zh"] h3,
+        [lang="zh"] .section-title {
+            font-family: 'Crimson Pro', 'Noto Serif SC', serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Giggly LLC</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-en="Home" data-zh="首页">Home</a></li>
+                <li><a href="#approach" data-en="Research Approach" data-zh="研究方法">Research Approach</a></li>
+                <li><a href="#cases" data-en="Case Studies" data-zh="案例研究">Case Studies</a></li>
+                <li><a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a></li>
+                <li><button class="lang-switch" onclick="toggleLanguage()">中文</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-en="Market Research &<br>E-commerce Strategy" data-zh="市场研究与<br>电商战略">Market Research &<br>E-commerce Strategy</h1>
+            <p class="hero-subtitle" data-en="Data-driven insights and strategic positioning for sustainable e-commerce growth. We transform consumer behavior analysis into actionable market opportunities." data-zh="数据驱动的洞察与战略定位，助力电商可持续增长。我们将消费者行为分析转化为可执行的市场机会。">Data-driven insights and strategic positioning for sustainable e-commerce growth. We transform consumer behavior analysis into actionable market opportunities.</p>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <div class="number">01</div>
+                    <div class="label" data-en="Quantitative Analysis" data-zh="定量分析">Quantitative Analysis</div>
+                </div>
+                <div class="feature-item">
+                    <div class="number">02</div>
+                    <div class="label" data-en="Consumer Insights" data-zh="消费者洞察">Consumer Insights</div>
+                </div>
+                <div class="feature-item">
+                    <div class="number">03</div>
+                    <div class="label" data-en="Strategic Positioning" data-zh="战略定位">Strategic Positioning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Approach -->
+    <section id="approach">
+        <div class="section-header">
+            <div class="section-number" data-en="Our Methodology" data-zh="我们的方法论">Our Methodology</div>
+            <h2 class="section-title" data-en="Research Approach" data-zh="研究方法">Research Approach</h2>
+            <p class="section-description" data-en="We combine rigorous quantitative methods with deep consumer understanding to uncover market opportunities and optimize product positioning." data-zh="我们结合严谨的定量方法与深度消费者洞察，发掘市场机遇并优化产品定位。">We combine rigorous quantitative methods with deep consumer understanding to uncover market opportunities and optimize product positioning.</p>
+        </div>
+
+        <div class="approach-grid">
+            <div class="approach-card">
+                <div class="approach-icon">📊</div>
+                <h3 data-en="Quantitative Analysis" data-zh="定量分析">Quantitative Analysis</h3>
+                <p data-en="Leveraging statistical modeling and data mining to identify patterns, trends, and opportunities in complex market datasets." data-zh="运用统计建模与数据挖掘技术，识别复杂市场数据中的模式、趋势与机会。">Leveraging statistical modeling and data mining to identify patterns, trends, and opportunities in complex market datasets.</p>
+                <ul>
+                    <li data-en="Sales trend analysis & forecasting" data-zh="销售趋势分析与预测">Sales trend analysis & forecasting</li>
+                    <li data-en="Price elasticity modeling" data-zh="价格弹性模型">Price elasticity modeling</li>
+                    <li data-en="Market segmentation analysis" data-zh="市场细分分析">Market segmentation analysis</li>
+                    <li data-en="Performance metrics optimization" data-zh="绩效指标优化">Performance metrics optimization</li>
+                </ul>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-icon">🔍</div>
+                <h3 data-en="Consumer Behavior Analysis" data-zh="消费者行为分析">Consumer Behavior Analysis</h3>
+                <p data-en="Deep-diving into consumer psychology, purchase motivations, and decision-making processes to inform product strategy." data-zh="深入研究消费者心理、购买动机与决策过程，为产品策略提供依据。">Deep-diving into consumer psychology, purchase motivations, and decision-making processes to inform product strategy.</p>
+                <ul>
+                    <li data-en="Purchase journey mapping" data-zh="购买旅程映射">Purchase journey mapping</li>
+                    <li data-en="Preference & sentiment analysis" data-zh="偏好与情感分析">Preference & sentiment analysis</li>
+                    <li data-en="User feedback synthesis" data-zh="用户反馈综合">User feedback synthesis</li>
+                    <li data-en="Behavioral pattern recognition" data-zh="行为模式识别">Behavioral pattern recognition</li>
+                </ul>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-icon">🎯</div>
+                <h3 data-en="Market Positioning" data-zh="市场定位">Market Positioning</h3>
+                <p data-en="Strategic analysis of competitive landscapes to establish differentiated market positions and sustainable competitive advantages." data-zh="战略性分析竞争格局，建立差异化市场地位与可持续竞争优势。">Strategic analysis of competitive landscapes to establish differentiated market positions and sustainable competitive advantages.</p>
+                <ul>
+                    <li data-en="Competitive intelligence gathering" data-zh="竞争情报收集">Competitive intelligence gathering</li>
+                    <li data-en="Market gap identification" data-zh="市场空白识别">Market gap identification</li>
+                    <li data-en="Product differentiation strategy" data-zh="产品差异化策略">Product differentiation strategy</li>
+                    <li data-en="Value proposition development" data-zh="价值主张开发">Value proposition development</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="cases">
+        <div class="section-header">
+            <div class="section-number" data-en="Research Reports" data-zh="研究报告">Research Reports</div>
+            <h2 class="section-title" data-en="Case Studies" data-zh="案例研究">Case Studies</h2>
+            <p class="section-description" data-en="Real-world applications of our research methodology, demonstrating measurable impact on product selection, sales optimization, and market positioning." data-zh="我们研究方法的实际应用，展示在产品选品、销售优化与市场定位方面的可衡量成果。">Real-world applications of our research methodology, demonstrating measurable impact on product selection, sales optimization, and market positioning.</p>
+        </div>
+
+        <div class="case-studies">
+            <!-- Case Study 1: Press-on Nails -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-number">01</div>
+                    <h3 class="case-title" data-en="Press-on Nail Market Analysis" data-zh="穿戴甲市场分析">Press-on Nail Market Analysis</h3>
+                </div>
+
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4 data-en="Product Selection Logic" data-zh="产品选品逻辑">Product Selection Logic</h4>
+                        <p data-en="Through comprehensive market research, we identified the press-on nail segment as a high-growth opportunity within the beauty accessories market. Consumer trend analysis revealed increasing demand for convenient, salon-quality nail solutions among millennial and Gen-Z demographics." data-zh="通过全面的市场研究，我们将穿戴甲细分市场识别为美妆配饰行业的高增长机会。消费者趋势分析显示，千禧一代与Z世代对便捷、沙龙级美甲解决方案的需求不断增长。">Through comprehensive market research, we identified the press-on nail segment as a high-growth opportunity within the beauty accessories market. Consumer trend analysis revealed increasing demand for convenient, salon-quality nail solutions among millennial and Gen-Z demographics.</p>
+                        <p data-en="Key selection criteria included: market growth rate (32% CAGR), low barrier to entry, strong social media engagement potential, and favorable price-to-value perception among target consumers." data-zh="关键选品标准包括：市场增长率（32% 复合年增长率）、较低的进入壁垒、强大的社交媒体互动潜力，以及目标消费者的良好性价比认知。">Key selection criteria included: market growth rate (32% CAGR), low barrier to entry, strong social media engagement potential, and favorable price-to-value perception among target consumers.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4 data-en="Sales Data Optimization" data-zh="销售数据优化案例">Sales Data Optimization</h4>
+                        <p data-en="Implementation of data-driven optimization strategies resulted in significant performance improvements. A/B testing of product imagery increased click-through rates by 47%, while price point optimization based on elasticity analysis improved conversion rates by 23%." data-zh="实施数据驱动的优化策略带来了显著的业绩提升。产品图像的A/B测试使点击率提高了47%，基于弹性分析的价格点优化使转化率提高了23%。">Implementation of data-driven optimization strategies resulted in significant performance improvements. A/B testing of product imagery increased click-through rates by 47%, while price point optimization based on elasticity analysis improved conversion rates by 23%.</p>
+                        <p data-en="Seasonal demand forecasting enabled optimized inventory management, reducing stockout incidents by 65% while maintaining healthy inventory turnover ratios." data-zh="季节性需求预测实现了优化的库存管理，减少了65%的缺货事件，同时保持了健康的库存周转率。">Seasonal demand forecasting enabled optimized inventory management, reducing stockout incidents by 65% while maintaining healthy inventory turnover ratios.</p>
+                    </div>
+                </div>
+
+                <div class="metrics">
+                    <div class="metric-box">
+                        <div class="metric-value">+186%</div>
+                        <div class="metric-label" data-en="Revenue Growth (Q4)" data-zh="营收增长（第四季度）">Revenue Growth (Q4)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">+47%</div>
+                        <div class="metric-label" data-en="CTR Improvement" data-zh="点击率提升">CTR Improvement</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">23%</div>
+                        <div class="metric-label" data-en="Conversion Rate Increase" data-zh="转化率提高">Conversion Rate Increase</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">-65%</div>
+                        <div class="metric-label" data-en="Stockout Reduction" data-zh="缺货减少">Stockout Reduction</div>
+                    </div>
+                </div>
+
+                <div class="case-section" style="margin-top: 2rem;">
+                    <h4 data-en="Competitive Analysis" data-zh="竞品分析">Competitive Analysis</h4>
+                    <p data-en="Systematic evaluation of 15 major competitors revealed market positioning opportunities in the mid-premium segment. Gap analysis identified underserved consumer needs for customizable designs with quick application systems. Strategic differentiation focused on design variety (50+ SKUs), premium materials, and superior adhesive technology, establishing a distinct value proposition in a crowded market." data-zh="对15个主要竞争对手的系统性评估揭示了中高端细分市场的定位机会。差距分析识别出对快速应用系统的可定制设计的未被充分服务的消费者需求。战略差异化聚焦于设计多样性（50+SKU）、优质材料和卓越的粘合技术，在拥挤的市场中建立了独特的价值主张。">Systematic evaluation of 15 major competitors revealed market positioning opportunities in the mid-premium segment. Gap analysis identified underserved consumer needs for customizable designs with quick application systems. Strategic differentiation focused on design variety (50+ SKUs), premium materials, and superior adhesive technology, establishing a distinct value proposition in a crowded market.</p>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Knitted Flowers -->
+            <div class="case-study">
+                <div class="case-header">
+                    <div class="case-number">02</div>
+                    <h3 class="case-title" data-en="Knitted Flower Accessories Research" data-zh="针织花卉配饰研究">Knitted Flower Accessories Research</h3>
+                </div>
+
+                <div class="case-content">
+                    <div class="case-section">
+                        <h4 data-en="Product Selection Logic" data-zh="产品选品逻辑">Product Selection Logic</h4>
+                        <p data-en="Market opportunity assessment identified knitted flower accessories as an emerging trend within the sustainable fashion movement. Consumer sentiment analysis across social platforms indicated growing interest in handcrafted, eco-friendly decorative items with emotional value." data-zh="市场机会评估将针织花卉配饰识别为可持续时尚运动中的新兴趋势。跨社交平台的消费者情绪分析表明，对具有情感价值的手工制作、环保装饰品的兴趣日益增长。">Market opportunity assessment identified knitted flower accessories as an emerging trend within the sustainable fashion movement. Consumer sentiment analysis across social platforms indicated growing interest in handcrafted, eco-friendly decorative items with emotional value.</p>
+                        <p data-en="Target demographic research revealed strong appeal among female consumers aged 25-40 with interests in sustainable living, home décor, and artisanal products. The combination of aesthetic appeal, gift-giving potential, and sustainability narrative presented a compelling value proposition." data-zh="目标人群研究显示，在25-40岁对可持续生活、家居装饰和手工产品感兴趣的女性消费者中具有强大吸引力。美学吸引力、送礼潜力和可持续性叙事的结合呈现了引人注目的价值主张。">Target demographic research revealed strong appeal among female consumers aged 25-40 with interests in sustainable living, home décor, and artisanal products. The combination of aesthetic appeal, gift-giving potential, and sustainability narrative presented a compelling value proposition.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h4 data-en="Sales Data Optimization" data-zh="销售数据优化案例">Sales Data Optimization</h4>
+                        <p data-en="Implementation of cohort analysis revealed distinct purchasing patterns across seasonal periods. Strategic timing of product launches aligned with Valentine's Day, Mother's Day, and holiday seasons resulted in 3.2x higher conversion rates compared to non-seasonal periods." data-zh="队列分析的实施揭示了跨季节期间的不同购买模式。与情人节、母亲节和节日季对齐的产品发布战略时机，使转化率比非季节期间高出3.2倍。">Implementation of cohort analysis revealed distinct purchasing patterns across seasonal periods. Strategic timing of product launches aligned with Valentine's Day, Mother's Day, and holiday seasons resulted in 3.2x higher conversion rates compared to non-seasonal periods.</p>
+                        <p data-en="Product bundling strategies based on purchase correlation analysis increased average order value by 34%. Customer lifetime value optimization through targeted remarketing campaigns improved repeat purchase rates by 28%." data-zh="基于购买相关性分析的产品捆绑策略使平均订单价值增加了34%。通过有针对性的再营销活动进行的客户生命周期价值优化使重复购买率提高了28%。">Product bundling strategies based on purchase correlation analysis increased average order value by 34%. Customer lifetime value optimization through targeted remarketing campaigns improved repeat purchase rates by 28%.</p>
+                    </div>
+                </div>
+
+                <div class="metrics">
+                    <div class="metric-box">
+                        <div class="metric-value">3.2x</div>
+                        <div class="metric-label" data-en="Seasonal Conversion Lift" data-zh="季节性转化提升">Seasonal Conversion Lift</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">+34%</div>
+                        <div class="metric-label" data-en="Average Order Value" data-zh="平均订单价值">Average Order Value</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">+28%</div>
+                        <div class="metric-label" data-en="Repeat Purchase Rate" data-zh="重复购买率">Repeat Purchase Rate</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">4.8/5</div>
+                        <div class="metric-label" data-en="Customer Satisfaction" data-zh="客户满意度">Customer Satisfaction</div>
+                    </div>
+                </div>
+
+                <div class="case-section" style="margin-top: 2rem;">
+                    <h4 data-en="Competitive Analysis" data-zh="竞品分析">Competitive Analysis</h4>
+                    <p data-en="Competitive landscape mapping identified a fragmented market with limited brand differentiation. Most competitors focused solely on product functionality, creating an opportunity to establish brand positioning around emotional storytelling and sustainability values. Strategic analysis of competitor pricing, customer reviews, and marketing approaches informed the development of a unique market position emphasizing artisanal quality, customization options, and environmental responsibility. This differentiation strategy enabled premium pricing while maintaining strong customer acquisition efficiency." data-zh="竞争格局映射识别出一个品牌差异化有限的碎片化市场。大多数竞争对手仅关注产品功能性，为围绕情感叙事和可持续性价值建立品牌定位创造了机会。对竞争对手定价、客户评论和营销方法的战略分析，为开发强调手工质量、定制选项和环境责任的独特市场地位提供了依据。这种差异化策略在保持强大的客户获取效率的同时实现了溢价定价。">Competitive landscape mapping identified a fragmented market with limited brand differentiation. Most competitors focused solely on product functionality, creating an opportunity to establish brand positioning around emotional storytelling and sustainability values. Strategic analysis of competitor pricing, customer reviews, and marketing approaches informed the development of a unique market position emphasizing artisanal quality, customization options, and environmental responsibility. This differentiation strategy enabled premium pricing while maintaining strong customer acquisition efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact">
+            <h2 data-en="Let's Work Together" data-zh="让我们合作">Let's Work Together</h2>
+            <p data-en="Ready to transform your e-commerce strategy with data-driven insights? Get in touch to discuss how we can help optimize your market positioning and drive sustainable growth." data-zh="准备好用数据驱动的洞察转变您的电商策略了吗？联系我们讨论如何优化您的市场定位并推动可持续增长。">Ready to transform your e-commerce strategy with data-driven insights? Get in touch to discuss how we can help optimize your market positioning and drive sustainable growth.</p>
+            <a href="mailto:contact@giggly-llc.com" class="contact-email">contact@giggly-llc.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Giggly LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            const elements = document.querySelectorAll('[data-en]');
+            const langButton = document.querySelector('.lang-switch');
+            
+            elements.forEach(el => {
+                el.innerHTML = el.getAttribute(`data-${currentLang}`);
+            });
+            
+            langButton.textContent = currentLang === 'en' ? '中文' : 'English';
+            document.body.setAttribute('lang', currentLang);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
